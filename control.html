@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Green</title>
+</head>
+<body>
+
+<h1 class="titulo">Pantalla de Control</h1>
+    
+<div class="container">
+        
+    <div class="div-column">
+        <form class="form_camaras" id="enlaces"  method="post">
+
+            <div class="element_form">
+                <label>Enlace Jugador 1:</label>
+                <input type="text" id="enlaceJugador1">
+            </div>
+
+            <div class="element_form">
+                <label>Enlace Jugador 2:</label>
+                <input type="text" id="enlaceJugador2">
+            </div>
+
+            <div class="element_form">
+                <label>Nombre Juez 1:</label>
+                <input type="text" id="nombreJuez1">
+                <label>Enlace Juez 1:</label>
+                <input type="text" id="enlaceJuez1">
+            </div>
+
+            <div class="element_form">
+                <label>Nombre Juez 2:</label>
+                <input type="text" id="nombreJuez2">
+                <label>Enlace Juez 2:</label>
+                <input type="text" id="enlaceJuez2">
+            </div>
+
+            <div class="element_form">
+                <button id="btnForm" type="submit" class="btn_form"> Agregar </button>
+            </div>
+
+        </form>
+
+    </div>
+
+ 
+
+
+    <div class="div-column">
+        <button class="btn_re_start" id="re_start" >Re-start</button>
+    </div>
+
+
+<script type="text/javascript">
+
+$("#enlaces").click(function(){
+    $.ajax({
+        url: "index.php",
+        type: "POST",
+        data: { 
+            enlaceJugador1 : $('#enlaceJugador1').val(),
+            enlaceJugador2 : $('#enlaceJugador2').val() 
+        },
+        success: function(datosEnlaces){
+            $('#datosEn').html(datosEnlaces);
+            console.log(datosEnlaces);
+
+
+        } 
+    });
+});
+
+</script>    
+    
+</div>
+
+</body>
+
+<footer></footer>
+
+<!--script src="./formulario.js"></script-->
+
+
+
+</html>
+
