@@ -1,36 +1,47 @@
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+        $enlaceJugador1 = $_POST["enlaceJugador1"];
+        $enlaceJugador2 = $_POST["enlaceJugador2"];
+        //$nombre1 = $_POST["nombre-juez1"];
+        //$enlace3 = $_POST["enlace-juez1"];
+        //$nombre2 = $_POST["nombre-juez2"];
+        //$enlace4 = $_POST["enlace-juez2"];
+            
+        echo '<input value="'.$enlaceJugador1.'" id="enlaceJugador1"><br>';
+        echo '<input value="'.$enlaceJugador2.'" id="enlaceJugador2">';
+    }    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/4.0/MicrosoftAjax.js" type="text/javascript"></script>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap"
         rel="stylesheet">
-    <title>Green</title>
 
+
+    <title>Green</title>
 </head>
 <body>
- 
     
 
     <h1 class="titulo">Nombre de la dinamica</h1>
 
- 
         
     <div class="container">
             
         <div class="div-column">
             <div class="div-row">
 
-                <div class="card" id="divJ1">
+                <div class="card">
                     <iframe id="jugador1"></iframe>
-                    
                 </div>
 
-                <div class="card" id="divJ2">
+                <div class="card">
                     <iframe id="jugador2"></iframe>
                 </div>
 
@@ -56,93 +67,22 @@
         </div>
 
         <div class="div-column">
-            <button class="btn_jugador" id="btnJugador1" onclick="btn1()">Jugador 1</button>
-            <button class="btn_jugador" id="btnJugador2" onclick="btn2()">Jugador 2</button>
+            <button class="btn_jugador" >Stop</button>
+            <button class="btn_jugador" >Stop</button>
         </div>
+
+        
+    <div id="datosEn">a</div>
         
     </div>
-    
-    
-    
+
 </body>
 
-
 <script>
-    var divj1 = document.getElementById("divJ1");
-    var divj2 = document.getElementById("divJ2");
-
     var jugador1 = document.getElementById("jugador1"); // create VDO.Ninja in an IFRAME
-    var jugador2 = document.getElementById("jugador2"); 
-
-    var btnJ1= document.getElementById('btnJugador1');
-    var btnJ2= document.getElementById('btnJugador2');
-
-    var juez1 = document.getElementById("juez1"); 
-    var juez2 = document.getElementById("juez2"); 
-
-    function btn1(){
-        divj1.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        /*divj1.style.boxShadow = '0px 0px 50px 15px rgba(9, 235, 255, 0.912);';
-        divj1.style.backgroundColor = 'rgb(21, 178, 89)';*/
-        btnJ2.style.backgroundColor = 'rgb(178, 27, 21)';
-        btnJ2.disabled = true;
-    }
-
-    function btn2() {
-        divj2.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        /*divj2.style.boxShadow = '0px 0px 50px 15px rgba(9, 235, 255, 0.912);';
-        divj2.style.backgroundColor = 'rgb(21, 178, 89)';*/
-        btnJ1.style.backgroundColor = 'rgb(178, 27, 21)';
-        btnJ1.disabled = true;
-    }
-
-    let enla = localStorage.getItem("datosE");
-
-    console.log(enla + 'a');
-    console.log(typeof(enla));
-
-    let enlace = enla.split(',');
-
-      for (let i = 0; i < enlace.length; i++) {
-          let clave = enlace[i];
-          console.log(clave)
-        }
-
-    console.log(enlace);
-
-    /*const claves = enlace || [];
-
-    claves = Object.key(enlace);*/
-  
-    /*let enlace = enla.split(',');
- 
-     let arr = [];
-         for (let i of enlace) {
-             arr.push(i);
-         }
-         console.log(arr); */
-
-   
-   /* enlaces = JSON.parse(localStorage.getItem("datosE"));
-
-    enlaces.forEach(element =>{
-        let elements = document.getElementById("elements");
-        let div = document.createElement("div");
-        div.innerHTML = element.jugador1;
-        elements.appendChild(div);
-    });*/
-
-   /* const enl1 = enlace || [];
-
-    console.log(enl1 + 'd')
-
-    enl1.array.forEach(element => {
-        console.log(element+'c');
-    });*/
-
-
-//  var enlace1 = document.querySelector("enlaceJugador1").value;
-    
+var jugador2 = document.getElementById("jugador2"); // create VDO.Ninja in an IFRAME
+var juez1 = document.getElementById("juez1"); // create VDO.Ninja in an IFRAME
+var juez2 = document.getElementById("juez2"); // create VDO.Ninja in an IFRAME
 
     jugador1.src = enlace1;
 
@@ -161,7 +101,7 @@ window.addEventListener("message", (e) => {
 
 
 
-/*jugador2.src = "https://vdo.ninja/?view=JYtstTC&solo&room=prueba";
+jugador2.src = "https://vdo.ninja/?view=JYtstTC&solo&room=prueba";
 
 jugador2.onload = function () { // start polling shortly after we connect
     setInterval(function () {
@@ -198,7 +138,7 @@ juez2.onload = function () { // start polling shortly after we connect
 window.addEventListener("message", (e) => {
     if (e.source != juez2.contentWindow) { return } // only listen for vdo.ninja events
     console.log(e.data);// print the messages inbound to the console log
-});*/
+});
 
 </script>
     

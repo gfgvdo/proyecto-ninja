@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/4.0/MicrosoftAjax.js" type="text/javascript"></script>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -50,7 +51,6 @@
 
     </div>
 
- 
 
 
     <div class="div-column">
@@ -59,8 +59,29 @@
 
 
 <script type="text/javascript">
+    const formulario = document.querySelector("#enlaces");
+        formulario.addEventListener("submit", validarFormulario)
 
-$("#enlaces").click(function(){
+        function validarFormulario(e) {
+            e.preventDefault();
+
+    var enlaceJugador1 = document.querySelector("#enlaceJugador1").value;
+    var enlaceJugador2 = document.querySelector("#enlaceJugador2").value;
+    var nombreJuez1 = document.querySelector("#nombreJuez1").value;
+    
+
+    //var datosEnlaces = [ enlaceJugador1,enlaceJugador2];
+    var datosEnlaces = {  enlaceJugador1,  enlaceJugador2, nombreJuez1 };
+    //var datosEnlaces = { jugador1: enlaceJugador1, jugador2: enlaceJugador2 };
+
+
+    localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
+    console.log(datosEnlaces);
+    
+
+        }
+
+/*$("#enlaces").click(function(){
     $.ajax({
         url: "index.php",
         type: "POST",
@@ -69,13 +90,14 @@ $("#enlaces").click(function(){
             enlaceJugador2 : $('#enlaceJugador2').val() 
         },
         success: function(datosEnlaces){
-            $('#datosEn').html(datosEnlaces);
+            //$('#datosEn').html(datosEnlaces);
+            localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
             console.log(datosEnlaces);
 
 
         } 
     });
-});
+});*/
 
 </script>    
     

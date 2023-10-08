@@ -8,8 +8,8 @@
         //$nombre2 = $_POST["nombre-juez2"];
         //$enlace4 = $_POST["enlace-juez2"];
             
-        echo '<input value='.$enlaceJugador1.' id="enlaceJugador1">';
-        echo '<input value='.$enlaceJugador2.' id="enlaceJugador2">';
+        echo '<input value="'.$enlaceJugador1.'" id="enlaceJugador1"><br>';
+        echo '<input value="'.$enlaceJugador2.'" id="enlaceJugador2">';
     }    
 
 ?>
