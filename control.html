@@ -54,7 +54,7 @@
 
 
     <div class="div-column">
-        <button class="btn_re_start" id="re_start" >Re-start</button>
+        <button class="btn_re_start" id="re_start" onclick="reStart()">Re-start</button>
     </div>
 
 
@@ -62,42 +62,58 @@
     const formulario = document.querySelector("#enlaces");
         formulario.addEventListener("submit", validarFormulario)
 
-        function validarFormulario(e) {
-            e.preventDefault();
+    function validarFormulario(e) {
+        e.preventDefault();
 
     var enlaceJugador1 = document.querySelector("#enlaceJugador1").value;
     var enlaceJugador2 = document.querySelector("#enlaceJugador2").value;
     var nombreJuez1 = document.querySelector("#nombreJuez1").value;
+    var enlaceJuez1 = document.querySelector("#enlaceJuez1").value;
+    var nombreJuez2 = document.querySelector("#nombreJuez2").value;
+    var enlaceJuez2 = document.querySelector("#enlaceJuez2").value;
+
+    if (enlaceJugador1 == "") {
+            document.getElementById("enlaceJugador1").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        } else if (enlaceJugador2 == "") {
+            document.getElementById("enlaceJugador2").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        } else if (nombreJuez1 == "") {
+            document.getElementById("nombreJuez1").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        } else if (enlaceJuez1 == "") {
+            document.getElementById("enlaceJuez1").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        } else if (nombreJuez2 == "") {
+            document.getElementById("nombreJuez2").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        } else if (enlaceJuez2 == "") {
+            document.getElementById("enlaceJuez2").focus();
+            alert('Favor de llenar los campos faltantes >:v ');
+        }
     
 
-    //var datosEnlaces = [ enlaceJugador1,enlaceJugador2];
-    var datosEnlaces = {  enlaceJugador1,  enlaceJugador2, nombreJuez1 };
-    //var datosEnlaces = { jugador1: enlaceJugador1, jugador2: enlaceJugador2 };
-
+    var datosEnlaces = {  enlaceJugador1,  enlaceJugador2, nombreJuez1, enlaceJuez1, nombreJuez2, enlaceJuez2 };
 
     localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
     console.log(datosEnlaces);
     
+    }
 
-        }
+    /*$(document).ready(function(){
+        $("#re_start").click(function(){
+            index.html.reload();
+        })
+    })
 
-/*$("#enlaces").click(function(){
-    $.ajax({
-        url: "index.php",
-        type: "POST",
-        data: { 
-            enlaceJugador1 : $('#enlaceJugador1').val(),
-            enlaceJugador2 : $('#enlaceJugador2').val() 
-        },
-        success: function(datosEnlaces){
-            //$('#datosEn').html(datosEnlaces);
-            localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
-            console.log(datosEnlaces);
+    function reStart() {
+        divj1.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
+        btnJ2.style.backgroundColor = 'rgb(178, 27, 21)';
+        btnJ2.disabled = true;
+    }*/
 
 
-        } 
-    });
-});*/
+
 
 </script>    
     
@@ -107,7 +123,7 @@
 
 <footer></footer>
 
-<!--script src="./formulario.js"></script-->
+
 
 
 
