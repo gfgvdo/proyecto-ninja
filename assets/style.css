@@ -61,8 +61,8 @@
 
     .btn_jugador {
         align-self: center;
-        /*background-color: rgb(178, 27, 21);*/
-        background-color: rgb(21, 178, 89);
+        background-color: rgb(178, 27, 21);
+        /*background-color: rgb(21, 178, 89);*/
         width: 200px;
         height: 200px;
         border-radius: 50%;

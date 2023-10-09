@@ -9,6 +9,8 @@ function validarFormulario(e){
     var enlaceJuez1 = document.querySelector("#enlace-juez1").value;
     var nombreJuez2 = document.querySelector("#nombre-juez2").value;
     var enlaceJuez2 = document.querySelector("#enlace-juez2").value;
+
+
     if (enlaceJugador1 == "" ){
         document.getElementById("enlace-jugador1").focus();
         alert('Favor de llenar los campos faltantes >:v ');
@@ -29,7 +31,15 @@ function validarFormulario(e){
         alert('Favor de llenar los campos faltantes >:v ');
     }
 
-    var enlace1 = enlaceJugador1.toString() 
+    //var datosEnlaces = [ enlaceJugador1,enlaceJugador2];
+    var datosEnlaces = { enlaceJugador1, enlaceJugador2, nombreJuez1 };
+    //var datosEnlaces = { jugador1: enlaceJugador1, jugador2: enlaceJugador2 };
+
+    localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
+    console.log(datosEnlaces);
+
+
+    //var enlace1 = enlaceJugador1.toString() 
 
     console.log(enlace1);
 
@@ -39,8 +49,25 @@ function validarFormulario(e){
 
 console.log(enlace1);
 
+// codigo HTML : < script src = "./formulario.js" ></script>
+
+/*$("#enlaces").click(function(){
+    $.ajax({
+        url: "index.php",
+        type: "POST",
+        data: { 
+            enlaceJugador1 : $('#enlaceJugador1').val(),
+            enlaceJugador2 : $('#enlaceJugador2').val() 
+        },
+        success: function(datosEnlaces){
+            //$('#datosEn').html(datosEnlaces);
+            localStorage.setItem("datosE", JSON.stringify(datosEnlaces));
+            console.log(datosEnlaces);
 
 
+        } 
+    });
+});*/
 /*document.querySelector('form')
     .addEventListener('submit', e => {
         e.preventDefault()
@@ -63,3 +90,53 @@ window.addEventListener("message", (e) => {
     if (e.source != jugador1.contentWindow) { return } // only listen for vdo.ninja events
     console.log(e.data);// print the messages inbound to the console log
 });*/
+
+
+    /*const claves = enlace || [];
+
+    claves = Object.key(enlace);*/
+  
+    /*let enlace = enla.split(',');
+ 
+     let arr = [];
+         for (let i of enlace) {
+             arr.push(i);
+         }
+         console.log(arr); */
+
+   
+   /* enlaces = JSON.parse(localStorage.getItem("datosE"));
+
+    enlaces.forEach(element =>{
+        let elements = document.getElementById("elements");
+        let div = document.createElement("div");
+        div.innerHTML = element.jugador1;
+        elements.appendChild(div);
+    });*/
+
+   /* const enl1 = enlace || [];
+
+    console.log(enl1 + 'd')
+
+    enl1.array.forEach(element => {
+        console.log(element+'c');
+    });*/
+
+
+//  var enlace1 = document.querySelector("enlaceJugador1").value;
+
+        //var separado = e1.split();
+    
+    /*    for (let i = 19; i < e1.length-1; i++) {
+        let separado = e1[i];
+        var final = JSON.stringify(separado);
+    
+        var fin = "";
+        fin = JSON.stringify(fin) + final  ;
+        
+        console.log(fin)
+    }*/
+
+    //console.log('var'+e1);
+    
+    //console.log(Object.values(e1));

@@ -26,12 +26,12 @@
             <div class="div-row">
 
                 <div class="card" id="divJ1">
-                    <iframe id="jugador1" allow="autoplay"></iframe>
+                    <iframe id="jugador1" allow="autoplay" autoplay></iframe>
                     
                 </div>
 
                 <div class="card" id="divJ2">
-                    <iframe id="jugador2" autoplay></iframe>
+                    <iframe id="jugador2"  allow="autoplay" autoplay></iframe>
                 </div>
 
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="div-column">
-            <button class="btn_jugador" id="btnJugador1" onclick="btn1()">Jugador 1</button>
+            <button class="btn_jugador" id="btnJugador1" onclick="btn1()">STOP</button>
             <button class="btn_jugador" id="btnJugador2" onclick="btn2()">Jugador 2</button>
         </div>
         
@@ -82,13 +82,13 @@
 
     function btn1(){
         divj1.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        btnJ2.style.backgroundColor = 'rgb(178, 27, 21)';
+        btnJ1.style.backgroundColor = 'rgb(21, 178, 89)';
         btnJ2.disabled = true;
     }
 
     function btn2() {
         divj2.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        btnJ1.style.backgroundColor = 'rgb(178, 27, 21)';
+        btnJ2.style.backgroundColor = 'rgb(21, 178, 89)';
         btnJ1.disabled = true;
     }
 
