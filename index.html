@@ -26,12 +26,12 @@
             <div class="div-row">
 
                 <div class="card" id="divJ1">
-                    <iframe id="jugador1"></iframe>
+                    <iframe id="jugador1" allow="autoplay"></iframe>
                     
                 </div>
 
                 <div class="card" id="divJ2">
-                    <iframe id="jugador2"></iframe>
+                    <iframe id="jugador2" autoplay></iframe>
                 </div>
 
             </div>
@@ -41,14 +41,14 @@
                 <div class="card">
                     <iframe id="juez1"></iframe>
                     <div class="container-card">
-                        <h4><b>John Doe</b></h4>
+                        <h4><input class="nombresJurado" id="nomJuez1" value="Nombre" readonly disabled></h4>
                     </div>
                 </div>
 
                 <div class="card">
                     <iframe id="juez2"></iframe>
                     <div class="container-card">
-                        <h4 id="nombre-juez2">a</h4>
+                        <h4><input class="nombresJurado" id="nomJuez2" value="Nombre" readonly disabled></h4>
                     </div>
                 </div>
 
@@ -82,16 +82,12 @@
 
     function btn1(){
         divj1.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        /*divj1.style.boxShadow = '0px 0px 50px 15px rgba(9, 235, 255, 0.912);';
-        divj1.style.backgroundColor = 'rgb(21, 178, 89)';*/
         btnJ2.style.backgroundColor = 'rgb(178, 27, 21)';
         btnJ2.disabled = true;
     }
 
     function btn2() {
         divj2.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        /*divj2.style.boxShadow = '0px 0px 50px 15px rgba(9, 235, 255, 0.912);';
-        divj2.style.backgroundColor = 'rgb(21, 178, 89)';*/
         btnJ1.style.backgroundColor = 'rgb(178, 27, 21)';
         btnJ1.disabled = true;
     }
@@ -103,102 +99,98 @@
 
     let enlace = enla.split(',');
 
-      for (let i = 0; i < enlace.length; i++) {
-          let clave = enlace[i];
-          console.log(clave)
+    for (let i = 0; i < enlace.length; i++) {
+        let clave = enlace[i];
+        console.log(clave)
+    }
+
+        const e1= enlace[0];
+        const e2 = enlace[1];
+        const n1 = enlace[2];
+        const e3 = enlace[3];
+        const n2 = enlace[4];
+        const e4 = enlace[5];
+
+        console.log(e1.slice(19,-1));
+
+        var enlace1 = e1.slice(19, -1);
+
+        var enlace2 = e2.slice(18,-1);
+
+        var nombre1 = n1.slice(15,-1);
+
+        nombreJuez1= document.getElementById('nomJuez1').value;     
+        console.log(nombreJuez1);
+
+        if(nombreJuez1 == "Nombre"){
+            document.getElementById('nomJuez1').value = nombre1;
         }
 
-    console.log(enlace);
+        var enlace3 = e3.slice(15, -1);
 
-    /*const claves = enlace || [];
+        var nombre2 = n2.slice(15, -1);
 
-    claves = Object.key(enlace);*/
-  
-    /*let enlace = enla.split(',');
- 
-     let arr = [];
-         for (let i of enlace) {
-             arr.push(i);
-         }
-         console.log(arr); */
+        nombreJuez2 = document.getElementById('nomJuez2').value;
 
-   
-   /* enlaces = JSON.parse(localStorage.getItem("datosE"));
-
-    enlaces.forEach(element =>{
-        let elements = document.getElementById("elements");
-        let div = document.createElement("div");
-        div.innerHTML = element.jugador1;
-        elements.appendChild(div);
-    });*/
-
-   /* const enl1 = enlace || [];
-
-    console.log(enl1 + 'd')
-
-    enl1.array.forEach(element => {
-        console.log(element+'c');
-    });*/
-
-
-//  var enlace1 = document.querySelector("enlaceJugador1").value;
-    
+        if (nombreJuez2 == "Nombre") {
+            document.getElementById('nomJuez2').value = nombre2;
+        }
+        
+        var enlace4 = e4.slice(15, -2);
 
     jugador1.src = enlace1;
 
-jugador1.onload = function () { // start polling shortly after we connect
-    setInterval(function (e) {
-        jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*");  // get details every second
-    }, 1000);
-}
-//document.body.appendChild(IFRAMEWINDOW); // add the vdo.ninja element to the page, so its active/visible
+    jugador1.onload = function () { 
+        setInterval(function (e) {
+            jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*"); 
+        }, 1000);
+        
+    }
 
-window.addEventListener("message", (e) => {
-    if (e.source != jugador1.contentWindow) { return } // only listen for vdo.ninja events
-    console.log(e.data);// print the messages inbound to the console log
-});
-
-
+    window.addEventListener("message", (e) => {
+        if (e.source != jugador1.contentWindow) { return } 
+        console.log(e.data);
+    });
 
 
-/*jugador2.src = "https://vdo.ninja/?view=JYtstTC&solo&room=prueba";
+    jugador2.src = enlace2;
 
-jugador2.onload = function () { // start polling shortly after we connect
-    setInterval(function () {
-        jugador2.contentWindow.postMessage({ "getDetailedState": true }, "*");  // get details every second
-    }, 1000);
-}
+    jugador2.onload = function () { 
+        setInterval(function () {
+            jugador2.contentWindow.postMessage({ "getDetailedState": true }, "*");  
+        }, 1000);
+    }
 
-window.addEventListener("message", (e) => {
-    if (e.source != jugador2.contentWindow) { return } // only listen for vdo.ninja events
-    console.log(e.data);// print the messages inbound to the console log
-});
+    window.addEventListener("message", (e) => {
+        if (e.source != jugador2.contentWindow) { return }
+        console.log(e.data);
+    });
 
-juez1.src = "https://vdo.ninja/?view=tcEUmRM";
+    juez1.src = enlace3;
 
-jugador1.onload = function () { // start polling shortly after we connect
-    setInterval(function () {
-        juez1.contentWindow.postMessage({ "getDetailedState": true }, "*");  // get details every second
-    }, 1000);
-}
+    jugador1.onload = function () { 
+        setInterval(function () {
+            juez1.contentWindow.postMessage({ "getDetailedState": true }, "*");  
+        }, 1000);
+    }
 
-window.addEventListener("message", (e) => {
-    if (e.source != juez1.contentWindow) { return } // only listen for vdo.ninja events
-    console.log(e.data);// print the messages inbound to the console log
-});
+    window.addEventListener("message", (e) => {
+        if (e.source != juez1.contentWindow) { return } 
+        console.log(e.data);
+    });
 
-juez2.src = "https://vdo.ninja/?view=tcEUmRM";
+    juez2.src = enlace4;
 
-juez2.onload = function () { // start polling shortly after we connect
-    setInterval(function () {
-        jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*");  // get details every second
-    }, 1000);
-}
+    juez2.onload = function () { 
+        setInterval(function () {
+            jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*");  
+        }, 1000);
+    }
 
-window.addEventListener("message", (e) => {
-    if (e.source != juez2.contentWindow) { return } // only listen for vdo.ninja events
-    console.log(e.data);// print the messages inbound to the console log
-});*/
+    window.addEventListener("message", (e) => {
+        if (e.source != juez2.contentWindow) { return } 
+        console.log(e.data);
+    });
 
 </script>
     
