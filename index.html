@@ -1,199 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/4.0/MicrosoftAjax.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap"
-        rel="stylesheet">
-    <title>Green</title>
-
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/green.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
- 
-    
+  <h1 class="titulo">Pantalla de Control</h1>
+  <div class="container">
+    <div class="div-column">
+      <form class="form_camaras" id="form">
 
-    <h1 class="titulo">Nombre de la dinamica</h1>
-
- 
-        
-    <div class="container">
-            
-        <div class="div-column">
-            <div class="div-row">
-
-                <div class="card" id="divJ1">
-                    <iframe id="jugador1" allow="autoplay" autoplay></iframe>
-                    
-                </div>
-
-                <div class="card" id="divJ2">
-                    <iframe id="jugador2"  allow="autoplay" autoplay></iframe>
-                </div>
-
-            </div>
-
-            <div class="div-row">
-
-                <div class="card">
-                    <iframe id="juez1"></iframe>
-                    <div class="container-card">
-                        <h4><input class="nombresJurado" id="nomJuez1" value="Nombre" readonly disabled></h4>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <iframe id="juez2"></iframe>
-                    <div class="container-card">
-                        <h4><input class="nombresJurado" id="nomJuez2" value="Nombre" readonly disabled></h4>
-                    </div>
-                </div>
-
-            </div>
+        <div class="element_form">
+          <label>Enlace Jugador 1:</label>
+          <input type="text" id="enlaceJugador1">
         </div>
 
-        <div class="div-column">
-            <button class="btn_jugador" id="btnJugador1" onclick="btn1()">STOP</button>
-            <button class="btn_jugador" id="btnJugador2" onclick="btn2()">Jugador 2</button>
+        <div class="element_form">
+          <label>Enlace Jugador 2:</label>
+          <input type="text" id="enlaceJugador2">
         </div>
-        
+
+        <div class="element_form">
+          <label>Nombre Juez 1:</label>
+          <input type="text" id="nombreJuez1">
+          <label>Enlace Juez 1:</label>
+          <input type="text" id="enlaceJuez1">
+        </div>
+
+        <div class="element_form">
+          <label>Nombre Juez 2:</label>
+          <input type="text" id="nombreJuez2">
+          <label>Enlace Juez 2:</label>
+          <input type="text" id="enlaceJuez2">
+        </div>
+
+        <div class="element_form">
+          <button id="btnForm" type="submit" class="btn_form"> Conectar </button>
+          <div id="links"></div>
+        </div>
+
+      </form>
+
     </div>
-    
-    
-    
+
+    <div class="div-column">
+      <button class="btn_re_start" id="restart">Re-start</button>
+    </div>
+    <script type="module" src="/main.js"></script>
 </body>
 
-
-<script>
-    var divj1 = document.getElementById("divJ1");
-    var divj2 = document.getElementById("divJ2");
-
-    var jugador1 = document.getElementById("jugador1"); // create VDO.Ninja in an IFRAME
-    var jugador2 = document.getElementById("jugador2"); 
-
-    var btnJ1= document.getElementById('btnJugador1');
-    var btnJ2= document.getElementById('btnJugador2');
-
-    var juez1 = document.getElementById("juez1"); 
-    var juez2 = document.getElementById("juez2"); 
-
-    function btn1(){
-        divj1.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        btnJ1.style.backgroundColor = 'rgb(21, 178, 89)';
-        btnJ2.disabled = true;
-    }
-
-    function btn2() {
-        divj2.style.cssText = 'box-shadow: 0px 0px 50px 15px rgba(9, 235, 255, 0.912); background-color: rgb(21, 178, 89);';
-        btnJ2.style.backgroundColor = 'rgb(21, 178, 89)';
-        btnJ1.disabled = true;
-    }
-
-    let enla = localStorage.getItem("datosE");
-
-    console.log(enla + 'a');
-    console.log(typeof(enla));
-
-    let enlace = enla.split(',');
-
-    for (let i = 0; i < enlace.length; i++) {
-        let clave = enlace[i];
-        console.log(clave)
-    }
-
-        const e1= enlace[0];
-        const e2 = enlace[1];
-        const n1 = enlace[2];
-        const e3 = enlace[3];
-        const n2 = enlace[4];
-        const e4 = enlace[5];
-
-        console.log(e1.slice(19,-1));
-
-        var enlace1 = e1.slice(19, -1);
-
-        var enlace2 = e2.slice(18,-1);
-
-        var nombre1 = n1.slice(15,-1);
-
-        nombreJuez1= document.getElementById('nomJuez1').value;     
-        console.log(nombreJuez1);
-
-        if(nombreJuez1 == "Nombre"){
-            document.getElementById('nomJuez1').value = nombre1;
-        }
-
-        var enlace3 = e3.slice(15, -1);
-
-        var nombre2 = n2.slice(15, -1);
-
-        nombreJuez2 = document.getElementById('nomJuez2').value;
-
-        if (nombreJuez2 == "Nombre") {
-            document.getElementById('nomJuez2').value = nombre2;
-        }
-        
-        var enlace4 = e4.slice(15, -2);
-
-    jugador1.src = enlace1;
-
-    jugador1.onload = function () { 
-        setInterval(function (e) {
-            jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*"); 
-        }, 1000);
-        
-    }
-
-    window.addEventListener("message", (e) => {
-        if (e.source != jugador1.contentWindow) { return } 
-        console.log(e.data);
-    });
-
-
-    jugador2.src = enlace2;
-
-    jugador2.onload = function () { 
-        setInterval(function () {
-            jugador2.contentWindow.postMessage({ "getDetailedState": true }, "*");  
-        }, 1000);
-    }
-
-    window.addEventListener("message", (e) => {
-        if (e.source != jugador2.contentWindow) { return }
-        console.log(e.data);
-    });
-
-    juez1.src = enlace3;
-
-    jugador1.onload = function () { 
-        setInterval(function () {
-            juez1.contentWindow.postMessage({ "getDetailedState": true }, "*");  
-        }, 1000);
-    }
-
-    window.addEventListener("message", (e) => {
-        if (e.source != juez1.contentWindow) { return } 
-        console.log(e.data);
-    });
-
-    juez2.src = enlace4;
-
-    juez2.onload = function () { 
-        setInterval(function () {
-            jugador1.contentWindow.postMessage({ "getDetailedState": true }, "*");  
-        }, 1000);
-    }
-
-    window.addEventListener("message", (e) => {
-        if (e.source != juez2.contentWindow) { return } 
-        console.log(e.data);
-    });
-
-</script>
-    
-
 </html>
-
