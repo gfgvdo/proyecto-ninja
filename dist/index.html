@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/green.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300&display=swap"
+    rel="stylesheet">
+  <script type="module" crossorigin src="/assets/main-2aad6186.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/index-d377ea6d.js">
+</head>
+
+<body>
+  <h1 class="titulo">Pantalla de Control</h1>
+  <div class="container">
+    <div class="div-column">
+      <form class="form_camaras" id="form">
+
+        <div class="element_form">
+          <label>Enlace Jugador 1:</label>
+          <input type="text" id="enlaceJugador1">
+        </div>
+
+        <div class="element_form">
+          <label>Enlace Jugador 2:</label>
+          <input type="text" id="enlaceJugador2">
+        </div>
+
+        <div class="element_form">
+          <label>Nombre Juez 1:</label>
+          <input type="text" id="nombreJuez1">
+          <label>Enlace Juez 1:</label>
+          <input type="text" id="enlaceJuez1">
+        </div>
+
+        <div class="element_form">
+          <label>Nombre Juez 2:</label>
+          <input type="text" id="nombreJuez2">
+          <label>Enlace Juez 2:</label>
+          <input type="text" id="enlaceJuez2">
+        </div>
+
+        <div class="element_form">
+          <button id="btnForm" type="submit" class="btn_form"> Conectar </button>
+          <div id="links"></div>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="div-column">
+      <button class="btn_re_start" id="restart">Re-start</button>
+    </div>
+    
+</body>
+
+</html>
